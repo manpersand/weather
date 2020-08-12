@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PulseLoader from "react-spinners/PulseLoader";
+import styled from "@emotion/styled";
 
 import WeatherCard from "./WeatherCard/component";
 
@@ -62,9 +63,14 @@ const WeatherEngine = ({ startLocation }) => {
           <PulseLoader size={15} color="darkgrey" />
         </div>
       ) : !loading && error ? (
-        <div style={{ color: "black" }}>
-          An error occured!{" "}
-          <button onClick={() => setError(false)}>Reset</button>
+        <div
+          style={{
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          Invalid city! <br />{" "}
+          <Button onClick={() => setError(false)}>Reset</Button>
         </div>
       ) : null}
     </div>
@@ -72,3 +78,10 @@ const WeatherEngine = ({ startLocation }) => {
 };
 
 export default WeatherEngine;
+
+const Button = styled.button`
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  border-radius: 10px;
+  width: 45%;
+`;

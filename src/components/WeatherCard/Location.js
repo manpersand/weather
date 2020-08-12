@@ -13,14 +13,15 @@ const Location = ({ city, country, getWeather }) => {
           onSubmit={(e) => {
             e.preventDefault();
             getWeather(query);
-          }}>
-          <input
+          }}
+        >
+          <Textbox
             required
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button type="submit">Search</button>
-          <button onClick={() => setInputMode(false)}>Cancel</button>
+          <Button type="submit">Search</Button>
+          <Button onClick={() => setInputMode(false)}>Cancel</Button>
         </form>
       )}
       <Country>{country}</Country>
@@ -39,10 +40,26 @@ const City = styled.h1`
   position: relative;
   cursor: pointer;
   &:hover {
-      top: -5px;
+    top: -5px;
   }
 `;
 const Country = styled.h3`
   font-family: "Fira Sans", sans-serif;
   font-size: 1.1rem;
+`;
+
+const Textbox = styled.input`
+  font-family: "Fira Sans", sans-serif;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  width: 90%;
+`;
+
+const Button = styled.button`
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  border-radius: 10px;
+  width: 45%;
 `;
