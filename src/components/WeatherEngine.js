@@ -38,41 +38,45 @@ const WeatherEngine = ({ startLocation }) => {
     getWeather(startLocation);
   }, [startLocation]);
 
+  if (error) {
+    return (
+      <div
+        style={{
+          color: "white",
+          textAlign: "center",
+        }}
+      >
+        Invalid city! <br />{" "}
+        <Button onClick={() => setError(false)}>Reset</Button>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          width: "200px",
+          height: "280px",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <PulseLoader size={15} color="darkgrey" />
+      </div>
+    );
+  }
+
   return (
     <div>
-      {!loading && !error ? (
-        <div>
-          <WeatherCard
-            temp={weather.temp}
-            condition={weather.condition}
-            city={weather.city}
-            country={weather.country}
-            getWeather={getWeather}
-          />
-        </div>
-      ) : loading ? (
-        <div
-          style={{
-            display: "flex",
-            width: "200px",
-            height: "280px",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <PulseLoader size={15} color="darkgrey" />
-        </div>
-      ) : !loading && error ? (
-        <div
-          style={{
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          Invalid city! <br />{" "}
-          <Button onClick={() => setError(false)}>Reset</Button>
-        </div>
-      ) : null}
+      <WeatherCard
+        temp={weather.temp}
+        condition={weather.condition}
+        city={weather.city}
+        country={weather.country}
+        getWeather={getWeather}
+      />
     </div>
   );
 };

@@ -1,29 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "@emotion/styled";
+import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Location = ({ city, country, getWeather }) => {
   const [query, setQuery] = useState("");
-  const [inputMode, setInputMode] = useState(false);
+  const [inputMode, setInputMode] = useState(true);
+  const inputRef = useRef("");
+
+  useEffect(() => {
+    if (inputMode) {
+      inputRef.current.focus();
+    }
+  }, [inputMode]);
+
+  if (inputMode) {
+    return (
+      <Container>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <FormElement
+            onSubmit={(e) => {
+              e.preventDefault();
+              getWeather(query);
+            }}
+          >
+            <Textbox
+              ref={inputRef}
+              required
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <SearchButton type="submit">Search</SearchButton>
+            <CancelButton onClick={() => setInputMode(false)}>X</CancelButton>
+          </FormElement>
+        </motion.div>
+      </Container>
+    );
+  }
 
   return (
     <Container>
-      {!inputMode && <City onClick={() => setInputMode(true)}>{city}</City>}
-      {inputMode && (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            getWeather(query);
-          }}
-        >
-          <Textbox
-            required
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          <Button type="submit">Search</Button>
-          <Button onClick={() => setInputMode(false)}>Cancel</Button>
-        </form>
-      )}
+      <City onClick={() => setInputMode(true)}>{city}</City>
       <Country>{country}</Country>
     </Container>
   );
@@ -48,18 +65,46 @@ const Country = styled.h3`
   font-size: 1.1rem;
 `;
 
-const Textbox = styled.input`
-  font-family: "Fira Sans", sans-serif;
-  background: rgba(0, 0, 0, 0.2);
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 15px;
-  width: 90%;
+const FormElement = styled.form`
+  display: flex;
+  position: relative;
+  background: #46618b;
+  border-radius: 5px;
 `;
 
-const Button = styled.button`
-  font-family: "Fira Sans", sans-serif;
-  font-weight: 200;
-  border-radius: 10px;
-  width: 45%;
+const Textbox = styled.input`
+  border: none;
+  background: transparent;
+  padding: 5px;
+  width: 80px;
+  color: white;
+  &:focus {
+    outline: 0;
+  }
+`;
+
+const SearchButton = styled.button`
+  padding: 5px;
+  background: #394e70;
+  color: white;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+`;
+
+const CancelButton = styled.span`
+  position: absolute;
+  background: #557fc2;
+  cursor: pointer;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  top: -10px;
+  right: -10px;
+  box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.4;
 `;
