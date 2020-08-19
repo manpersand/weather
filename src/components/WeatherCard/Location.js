@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Location = ({ city, country, getWeather }) => {
   const [query, setQuery] = useState("");
-  const [inputMode, setInputMode] = useState(true);
+  const [inputMode, setInputMode] = useState(false);
   const inputRef = useRef("");
 
   useEffect(() => {
