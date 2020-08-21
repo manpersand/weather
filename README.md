@@ -1,6 +1,6 @@
 ## My first react app. 
 
-[Demo Gif](https://media.giphy.com/media/fxetdN1CurOIo3CnCN/giphy.gif)
+![Demo Gif](https://media.giphy.com/media/fxetdN1CurOIo3CnCN/giphy.gif)
 
 ### A simple weather widget that displays the current temperature and weather condition for a city provided by user. Temperature below 12ºC is considered cool and above 12ºC is considered hot. The background color of the weather card changes according to the temperature.
 ---
