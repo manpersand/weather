@@ -7,16 +7,16 @@
 }
 
 .header {
-  font-family: "Merriweather", sans-serif;
-  font-size: 7rem;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 5rem;
   color: black;
   text-align: center;
   padding: 5%;
 }
 
 .footer {
-  font-family: "Merriweather", sans-serif;
-  font-size: 2rem;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.5rem;
   color: black;
   text-align: center;
   padding: 5%;
@@ -27,7 +27,7 @@
   padding: 1%;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px 20px;
-  background: rgba(0, 0, 0, 0.3);
+  background-color: #46618b;
   border-radius: 15px;
 }
 
@@ -53,4 +53,9 @@
   .footer {
     font-size: 1.2rem;
   }
+}
+
+a {
+  text-decoration: none;
+  color: #394e70;
 }

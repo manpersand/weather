@@ -1,6 +1,6 @@
 {
   "name": "weather",
-  "homepage": "https://thor.net.nait.ca/~msandhu1/weather/",
+  "homepage": "https://manpreetsandhu.io/weather/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
