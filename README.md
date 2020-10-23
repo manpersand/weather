@@ -16,4 +16,4 @@ format for the config.json file:
 
 ---
 
-### App can be viewed live [here!](https://thor.net.nait.ca/~msandhu1/weather/)
+### App can be viewed live [here!](https://manpreetsandhu.io/weather/)
