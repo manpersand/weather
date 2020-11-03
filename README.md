@@ -1,8 +1,8 @@
-## My first react app. 
-
 ![Demo Screenshot](weather.png)
 
-### A simple weather widget that displays the current temperature and weather condition for a city provided by user. Temperature below 12ºC is considered cool and above 12ºC is considered hot. The background color of the weather card changes according to the temperature.
+## My first react app. 
+A simple weather widget that displays the current temperature and weather condition for a city provided by user. Temperature below 12ºC is considered cool and above 12ºC is considered hot. The background color of the weather card changes according to the temperature.
+
 ---
 React libraries used:
 - [Framer Motion](https://www.framer.com/motion/) for animation
@@ -16,4 +16,4 @@ format for the config.json file:
 
 ---
 
-### App can be viewed live [here!](https://manpreetsandhu.io/weather/)
+App can be viewed live [here!](https://manpreetsandhu.io/weather/)
